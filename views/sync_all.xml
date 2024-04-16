@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <!--Employee-->
+       <record id="sync_employee_all" model="ir.actions.server">
+            <field name="name">Sync All</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+             action = records.sync_employee_multiple()</field>
+       </record>
+
+
+       <record id="sync_employee_values" model="ir.actions.server">
+            <field name="name">Export to Qbo </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="hr.model_hr_employee"/>
+            <field name="binding_model_id" ref="hr.model_hr_employee"/>
+            <field name="state">code</field>
+            <field name="code">records.sync_employee_multiple()</field>
+       </record>
+
+       <!--Product-->
+       <record id="sync_product_all" model="ir.actions.server">
+            <field name="name">Sync All</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+             action = records.sync_product_multiple()</field>
+       </record>
+
+
+       <record id="sync_product_values" model="ir.actions.server">
+            <field name="name">Export to Qbo </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="product.model_product_template"/>
+            <field name="binding_model_id" ref="product.model_product_template"/>
+            <field name="state">code</field>
+            <field name="code">records.sync_product_multiple()</field>
+       </record>
+
+       <!--Account-->
+       <record id="sync_account_all" model="ir.actions.server">
+            <field name="name">Sync All</field>
+            <field name="model_id" ref="account.model_account_account"/>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+             action = records.sync_account_multiple()</field>
+       </record>
+
+
+       <record id="sync_account_values" model="ir.actions.server">
+            <field name="name">Export to Qbo </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="account.model_account_account"/>
+            <field name="binding_model_id" ref="account.model_account_account"/>
+            <field name="state">code</field>
+            <field name="code">records.sync_account_multiple()</field>
+       </record>
+
+       <!--Customer-->
+       <record id="sync_customer_all" model="ir.actions.server">
+            <field name="name">Sync All</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+             action = records.sync_customer_multiple()</field>
+       </record>
+
+
+       <record id="sync_customer_values" model="ir.actions.server">
+            <field name="name">Export to Qbo </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="base.model_res_partner"/>
+            <field name="binding_model_id" ref="base.model_res_partner"/>
+            <field name="state">code</field>
+            <field name="code">records.sync_customer_multiple()</field>
+       </record>
+
+       <!--Empdepartment-->
+       <record id="sync_employeedepartment_all" model="ir.actions.server">
+            <field name="name">Sync All</field>
+            <field name="model_id" ref="hr.model_hr_department"/>
+            <field name="state">code</field>
+            <field name="code">
+            if records:
+             action = records.sync_employeedepartment_multiple()</field>
+       </record>
+
+
+       <record id="sync_employeedepartment_values" model="ir.actions.server">
+            <field name="name">Export to Qbo </field>
+            <field name="type">ir.actions.server</field>
+            <field name="model_id" ref="hr.model_hr_department"/>
+            <field name="binding_model_id" ref="hr.model_hr_department"/>
+            <field name="state">code</field>
+            <field name="code">records.sync_employeedepartment_multiple()</field>
+       </record>
+
+    </data>
+</odoo>

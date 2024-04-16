@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+   <data>
+     <record id="view_product_form_quick" model="ir.ui.view">
+         <field name="name">quick.product.template.form</field>
+         <field name="model">product.template</field>
+         <field name="inherit_id" ref="product.product_template_only_form_view" />
+         <field name="arch" type="xml">
+            <sheet position="before">
+               <header>
+                     <button name="sync_product" type="object" string="Sync"/>
+               </header>
+            </sheet>
+               <xpath expr="//label[@for='purchase_ok']" position="after">
+                  <div>
+                     <field name="purchase_tax_included"/>
+                     <label for="purchase_tax_included"/>
+                  </div>
+                  <div>
+                     <field name="sales_tax_included"/>
+                     <label for="sales_tax_included"/>
+                  </div>
+                  <div>
+                     <field name="taxable"/>
+                     <label for="taxable"/>
+                  </div>
+               </xpath>
+               <xpath expr="//page/group" position="inside">
+                  <group>
+                     <field name="backend_id"/>
+                     <field name="quickbook_id"/>
+                  </group>
+               </xpath>
+               <xpath expr="//group[@name='properties']/group/field[@name='property_account_income_id']" position="attributes">
+                  <attribute name="domain">[('backend_id','!=', None)]</attribute>
+               </xpath>
+               <xpath expr="//group[@name='properties']/group/field[@name='property_account_expense_id']" position="attributes">
+                  <attribute name="domain">[('backend_id','!=', None)]</attribute>
+               </xpath>
+         </field>
+     </record>
+
+        <record id="view_product_category_form_quick" model="ir.ui.view">
+         <field name="name">quick.product.category.form</field>
+         <field name="model">product.category</field>
+         <field name="inherit_id" ref="product.product_category_form_view" />
+         <field name="arch" type="xml">
+            <sheet position="before">
+               <header>
+                     <button name="sync_product" type="object" string="Sync"/>
+               </header>
+            </sheet>
+               <xpath expr="//form/sheet/group[@name='first']" position="inside">
+                 <field name="backend_id"/>
+                 <field name="quickbook_id"/>
+               </xpath>
+         </field>
+       </record>
+
+      <record id="view_sales_order_form" model="ir.ui.view">
+         <field name="name">res.sales.inherit_id</field>
+         <field name="model">sale.order</field>
+         <field name="inherit_id" ref="sale.view_order_form" />
+         <field name="arch" type="xml">
+            <sheet position="before">
+               <header>
+                     <button name="sync_sale" type="object" string="Sync"/>
+               </header>
+            </sheet>
+            <group>
+               <group name= "backendid">
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+                  <field name="send_as" string="Set As" required="1"/>
+               </group>
+            </group>
+         </field>
+      </record>
+
+      <record id="view_purchase_order_form" model="ir.ui.view">
+         <field name="name">purchase.order.inherit_id</field>
+         <field name="model">purchase.order</field>
+         <field name="inherit_id" ref="purchase.purchase_order_form" />
+         <field name="arch" type="xml">
+               <sheet position="before">
+               <header>
+                     <button name="sync_purchase" type="object" string="Sync"/>
+               </header>
+            </sheet>
+               <xpath expr="//group/field[@name='partner_ref']" position="after">
+                  <field name="backend_id"/>
+                  <field name="doc_number"/>
+                  <field name="quickbook_id"/>
+               </xpath>
+         </field>
+      </record>
+
+      <record id="view_COA_form" model="ir.ui.view">
+         <field name="name">account.account.inherit_id</field>
+         <field name="model">account.account</field>
+         <field name="inherit_id" ref="account.view_account_form"/>
+         <field name="arch" type="xml">
+               <sheet position="before">
+               <header>
+                     <button name="sync_account" type="object" string="Sync"/>
+               </header>
+            </sheet>
+               <xpath expr="//group/group/field[@name='tag_ids']" position="after">
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+               </xpath>
+         </field>
+      </record>
+
+      <record id="quickbook_invoice_bill_view" model="ir.ui.view">
+         <field name="name">account.move.form.inherit_id</field>
+         <field name="model">account.move</field>
+         <field name="type">form</field>
+         <field name="inherit_id" ref="account.view_move_form"/>
+         <field name="arch" type="xml">
+                 <xpath expr="//header/button[@name='action_reverse']" position="before">
+                    <button name="sync_invoice" type="object" string="Sync" invisible="move_type not in ('out_invoice')"/>
+                    <button name="sync_bill" type="object" string="Sync"  invisible="move_type not in ('in_invoice')"/>
+                 </xpath>
+                <xpath expr="//sheet/group/group[2]/label[@for='journal_id']" position="before">
+                    <field name="backend_id"/>
+                    <field name="doc_number"/>
+                    <field name="quickbook_id"/>
+                </xpath>
+         </field>
+    </record>
+
+  </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_partners_form_quick" model="ir.ui.view">
+        <field name="name">quick.res.partner.form</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+          <sheet position="before">
+               <header>
+                  <button name="sync_customer_multiple" type="object" string="Sync" invisible="supplier_rank &lt; '1'"/>
+                  <button name="sync_customer_vendor" type="object" string="Sync" invisible="supplier_rank &gt; '0'"/>
+               </header>
+            </sheet>
+            <xpath expr="//group" position="inside">
+               <group>
+                  <field name="company_name" placeholder="QBO Company Name"/>
+                  <field name="first_name" default_focus="1" placeholder="First Name"/>
+                  <field name="last_name" default_focus="1" placeholder="Last Name" />
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+                   <field name="supplier_rank" invisible="1"/>
+               </group>
+            </xpath> 
+        </field>
+       </record>
+    </data>
+</odoo>

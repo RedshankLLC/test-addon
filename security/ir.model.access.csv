@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_quickbooks_backend,access_quickbooks_backend,model_qb_backend,,1,1,1,0
+access_quickbooks_odoo_manager,qb_backend.manager,model_qb_backend,,1,1,1,1
+access_quickbook_jobs,access_quickbook_jobs,model_quickbook_jobs,,1,1,1,1
+access_quickbook_accounts,access_quickbook_accounts,model_quickbook_accounts,base.group_user,1,1,1,1
+access_quickbook_employees,access_quickbook_employees,model_quickbook_employees,base.group_user,1,1,1,1
+access_quickbook_customers,access_quickbook_customers,model_quickbook_customers,base.group_user,1,1,1,1
+access_quickbook_products,access_quickbook_products,model_quickbook_products,base.group_user,1,1,1,1
+access_quickbook_vendors,access_quickbook_vendors,model_quickbook_vendors,base.group_user,1,1,1,1
+access_message_wizard,access_message_wizard,model_message_wizard,base.group_user,1,1,1,1

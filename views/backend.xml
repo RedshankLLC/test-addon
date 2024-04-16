@@ -1,0 +1,594 @@
+<odoo>
+    <data>
+        <record id="backend_menu" model="ir.actions.act_window">
+            <field name="name">Backend</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">qb.backend</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="Backend_tree_view">
+            <field name="name">Backend</field>
+            <field name="model">qb.backend</field>
+            <field name="arch" type="xml">
+                <tree string="Backend Tree">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="qb_account_menu" model="ir.actions.act_window">
+            <field name="name">Accounts</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quickbook.accounts</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="qb_customer_menu" model="ir.actions.act_window">
+            <field name="name">Customers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quickbook.customers</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="qb_employee_menu_emp" model="ir.actions.act_window">
+            <field name="name">Employees</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quickbook.employees</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="qb_vendor_menu" model="ir.actions.act_window">
+            <field name="name">Vendors</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quickbook.vendors</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="qb_product_menu" model="ir.actions.act_window">
+            <field name="name">Products</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">quickbook.products</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_account_tree_view_custom">
+            <field name="name">QbAccounts</field>
+            <field name="model">quickbook.accounts</field>
+            <field name="arch" type="xml">
+                <tree string="Quickbook Accounts">
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_account_form_view_custom">
+            <field name="name">Quickbooks Accounts</field>
+            <field name="model">quickbook.accounts</field>
+            <field name="arch" type="xml">
+                <form string="Quickbook Accounts Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="account_type_id"/>
+                        <field name="classification"/>
+                        <field name="quickbook_id"/>
+                        <field name="account_odoo"/>
+                        <field name="active"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_customer_tree_view_custom">
+            <field name="name">QbCustomers</field>
+            <field name="model">quickbook.customers</field>
+            <field name="arch" type="xml">
+                <tree string="Quickbook Customers">
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_customers_form_view_custom">
+            <field name="name">Quickbooks Customers</field>
+            <field name="model">quickbook.customers</field>
+            <field name="arch" type="xml">
+                <form string="Quickbook Customers and Vendors Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="city"/>
+                        <field name="street"/>
+                        <field name="street2"/>
+                        <field name="zip"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="website"/>
+                        <field name="customer"/>
+                        <field name="supplier"/>
+                        <field name="customer_odoo"/>
+                        <field name="quickbook_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_vendor_tree_view_custom">
+            <field name="name">QbVendors</field>
+            <field name="model">quickbook.vendors</field>
+            <field name="arch" type="xml">
+                <tree string="Quickbook Vendors">
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_vendor_form_view_custom">
+            <field name="name">Quickbooks Vendors</field>
+            <field name="model">quickbook.vendors</field>
+            <field name="arch" type="xml">
+                <form string="Quickbook Vendors Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="city"/>
+                        <field name="street"/>
+                        <field name="street2"/>
+                        <field name="zip"/>
+                        <field name="phone"/>
+                        <field name="email"/>
+                        <field name="website"/>
+                        <field name="customer"/>
+                        <field name="supplier"/>
+<!--                        <field name="vendor_odoo"/>-->
+                        <field name="quickbook_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_employee_tree_view_custom">
+            <field name="name">QbEmployees</field>
+            <field name="model">quickbook.employees</field>
+            <field name="arch" type="xml">
+                <tree string="Quickbook Employees">
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                </tree>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="qb_employee_form_view_custom">
+            <field name="name">Quickbooks Employees</field>
+            <field name="model">quickbook.employees</field>
+            <field name="arch" type="xml">
+                <form string="Quickbook Employees Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="employee_odoo"/>
+                        <field name="quickbook_id"/>
+                        <field name="first_name" string="First Name"/>
+                        <field name="middle_name" string="Middle Name"/>
+                        <field name="last_name" string="Last Name"/>
+                        <field name="billable_time" string="Billable Time"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="qb_product_tree_view_custom">
+            <field name="name">QbProducts</field>
+            <field name="model">quickbook.products</field>
+            <field name="arch" type="xml">
+                <tree string="Quickbook Products">
+                    <field name="name"/>
+                    <field name="quickbook_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="qb_products_form_view_custom">
+            <field name="name">Quickbooks Products</field>
+            <field name="model">quickbook.products</field>
+            <field name="arch" type="xml">
+                <form string="Quickbook Products Form">
+                    <group>
+                        <field name="name"/>
+                        <field name="product_odoo" filter_domain="[('quickbook_id','!=',False)]"/>
+                        <field name="quickbook_id"/>
+                        <field name="lst_price"/>
+                        <field name="property_account_income_id"/>
+                        <field name="property_account_expense_id"/>
+                        <field name="description"/>
+                        <field name="purchase_tax_included"/>
+                        <field name="sales_tax_included"/>
+                        <field name="active"/>
+                        <field name="image_name"/>
+                        <field name="taxable"/>
+                        <field name="abatement_rate"/>
+                        <field name="purchase_tax_included"/>
+                        <field name="purchase_tax_included"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="backend_form">
+            <field name="name">Register</field>
+            <field name="model">qb.backend</field>
+            <field name="arch" type="xml">
+                <form string="Configuration Form">
+                    <header>
+                        <button string="OAuth2 Authorization" class="oe_highlight"
+                            type="object" name="qb_authorization_o2_step1"/>
+<!--                        original condition :invisible="o2_auth_url == False or type != 'oauth2'"-->
+                        <button string="Continue OAuth2 Authorization" class="oe_highlight" type="object" name="qb_authorization_o2_step2"/>
+<!--                        attrs="{'invisible': [('type','!=','oauth2')]}"-->
+                        <button string="Test Connection" class="oe_highlight"
+                                type="object" invisible="type != 'oauth2'" name="test_connection"/>
+<!--                        attrs="{'invisible': [('type','!=','oauth2')]}"-->
+                        <button string="Refresh Token" class="oe_highlight"
+                                type="object"  invisible="type != 'oauth2'" name="refresh_connection" />
+<!--                        attrs="{'invisible': [('type','!=','oauth1')]}"-->
+                        <button string="OAuth1 Authorization" class="oe_highlight"
+                                type="object" invisible="type != 'oauth1'" name="qb_authorization"/>
+<!--                        attrs="{'invisible': ['|', ('new_url','=', False), ('type','!=','oauth1')]}"-->
+                        <button string="Continue OAuth1 Authorization" class="oe_highlight"
+                                type="object" name="qb_authorization_step2"  invisible="new_url == False or  type != 'oauth1'" />
+                    </header>
+                    <sheet>
+                        <label for="name" string="Name"/>
+                        <h1>
+                            <field name="name" placeholder="Configuration Name"/>
+                        </h1>
+                        <separator string="Configuration"/>
+                        <group>
+                            <group>
+                                <field name="connection_type"/>
+                            </group>
+                            <group>
+
+                            </group>
+                        </group>
+                        <group col="2">
+                            <field name="location" placeholder="Enter Production OR Sandbox URL" readonly="1" force_save = "1" />
+                            <field name="client_key" placeholder="Enter Consumer Key"/>
+                            <field name="client_secret" placeholder="Enter Consumer Secret Key" />
+                            <field name="type"/>
+                            <field name="version" />
+                            <field name="company_id" placeholder="Ream ID"/>
+                            <field name="o2_go_to" placeholder='Go to the whole url after Authorization' widget="url"/>
+                            <field name="o2_auth_url" placeholder='Enter the whole url after Authorization'/>
+                            <field name="redirect_uri" string="Domain/Redirect URL"/>
+                        </group>
+<!--                        attrs="{'invisible': [('type','!=','oauth1')]}"-->
+                        <group invisible="type != 'oauth1'">
+                            <field name="request_token_url" />
+                            <field name="access_token_url" />
+                            <field name="authorization_base_url" />
+                            <field name="resource_owner_key" placeholder="Request Token(Auto-Generatable)"/>
+                            <field name="resource_owner_secret" placeholder="Request Secret Token(Auto-Generatable)"/>
+                            <field name="new_url" placeholder='Enter the whole url after Authorization'/>
+                            <field name="verify_ssl" invisible="1"/>
+                            <field name="default_lang_id" invisible="1"/>
+                            <field name="go_to" placeholder='Go to the whole url after Authorization' widget="url"/>
+                        </group>
+<!--                    attrs="{'invisible': [('type','!=','oauth2')]}"-->
+                        <group invisible="type != 'oauth2'">
+                            <field name="oauth2_authorization_base_url" />
+                            <field name="token_url"/>
+                            <field name="record_no"/>
+                            <field name="scope"/>
+                        </group>
+                        <group>
+                                <field name="data" widget="radio"/>
+                        </group>
+                        <group>
+                            <!--                        attrs="{'invisible': [('data', '=', 'all')]}"-->
+                            <field name="start_date" invisible="data == 'all'" required="data == 'custom'" class="oe_inline"/>
+<!--                            attrs="{'invisible': [('data', '=', 'all')]}"-->
+                            <field name="end_date"  invisible="data == 'all'" required="data == 'custom'" class="oe_inline"/>
+                        </group>
+
+<!--                        <group>-->
+<!--                            <field name="page"  string="Page"/>-->
+<!--                            <field name="No_of_records" string="No of records" readonly="1"/>-->
+<!--                        </group>-->
+                        <notebook>
+                            <page string="Import">
+                                
+                                <group>
+<!--                                    <label for="import_accounts_type" string="Import Accounts Type" class="oe_inline"/>-->
+<!--                                    <button name="import_accounts_type" type="object" class="oe_highlight"-->
+<!--                                            string="Import Accounts Type"/>-->
+
+                                            
+                                    <label for="import_accounts_new" string="Import Accounts" class="oe_inline"/>
+                                    <button name="import_accounts_new" type="object" class="oe_highlight"
+                                            string="Import Accounts"/>
+                                
+                                    <label for="import_taxes" string="Import Account Tax Code" class="oe_inline"/>
+                                    <button name="import_taxes" type="object" class="oe_highlight"
+                                            string="Import Account Tax Code"/>
+                               
+                                    <label for="import_terms" string="Import Payment Term" class="oe_inline"/>
+                                    <button name="import_terms" type="object" class="oe_highlight" string="Import Payment Term"/>
+                                
+                                    <label for="import_payment_methods" string="Import Payment Methods" class="oe_inline"/>
+                                    <button name="import_payment_methods" type="object" class="oe_highlight" string="Import Payment Methods"/>
+                                
+                                    <label for="import_customers_new" string="Import Customers" class="oe_inline"/>
+                                    <button name="import_customers_new" type="object" class="oe_highlight" string="Import Customers"/>
+                                
+                                    <label for="import_vendors_new" string="Import Vendors" class="oe_inline"/>
+                                    <button name="import_vendors_new" type="object" class="oe_highlight" string="Import Vendors"/>
+                               
+                                    <label for="import_employees_new" string="Import Employees" class="oe_inline"/>
+                                    <button name="import_employees_new" type="object" class="oe_highlight" string="Import Employees"/>
+                                
+                                    <label for="import_departments" string="Import Employees Department" class="oe_inline"/>
+                                    <button name="import_departments" type="object" class="oe_highlight" string="Import Employees Department"/>
+
+                                    <label for="import_products_category" string="Import Product Category" class="oe_inline"/>
+                                    <button name="import_products_category" type="object" class="oe_highlight" string="Import Product Category"/>
+                                    <label for="import_products_new" string="Import Products" class="oe_inline"/>
+                                    <button name="import_products_new" type="object" class="oe_highlight" string="Import Products"/>
+                               
+                                    <label for="import_sales" string="Import Sales" class="oe_inline"/>
+                                    <button name="import_sales" type="object" class="oe_highlight" string="Import Sales"/>
+                                
+                                    <label for="import_estimates" string="Import Estimate" class="oe_inline"/>
+                                    <button name="import_estimates" type="object" class="oe_highlight" string="Import Estimate"/>
+
+                                    <label for="import_invoices" string="Import Invoices" class="oe_inline"/>
+                                    <button name="import_invoices" type="object" class="oe_highlight" string="Import Invoices"/>
+                                
+                                    <label for="import_invoicePayments" string="Import Invoice Payments" class="oe_inline"/>
+                                    <button name="import_invoicePayments" type="object" class="oe_highlight" string="Import Invoice Payments"/>
+                               
+                                    <label for="import_purchases" string="Import Purchase" class="oe_inline"/>
+                                    <button name="import_purchases" type="object" class="oe_highlight" string="Import Purchase"/>
+                                
+                                    <label for="import_bills" string="Import Bills" class="oe_inline"/>
+                                    <button name="import_bills" type="object" class="oe_highlight" string="Import Bills"/>
+                                
+                                    <label for="import_billpayments" string="Import Bills Payments" class="oe_inline"/>
+                                    <button name="import_billpayments" type="object" class="oe_highlight" string="Import Bills Payments"/>
+                                
+                                    <label for="import_journals" string="Import Journal" class="oe_inline"/>
+                                    <button name="import_journals" type="object" class="oe_highlight" string="Import Journal"/>
+                                </group>
+                            
+                            </page>
+                            <page string="Export">
+                                <group>
+                                    <label for="export_customers" string="Export Customers" class="oe_inline"/>
+                                    <button name="export_customers" type="object" class="oe_highlight" string="Export Customers"/>
+                              
+                                    <label for="export_vendors" string="Export Vendors" class="oe_inline"/>
+                                    <button name="export_vendors" type="object" class="oe_highlight" string="Export Vendors"/>
+
+                                    <label for="export_category" string="Export Product Category"
+                                        class="oe_inline" />
+                                    <button name="export_category" type="object" class="oe_highlight"
+                                        string="Export Product Category" />
+
+                                    <label for="export_items" string="Export Product" class="oe_inline"/>
+                                    <button name="export_items" type="object" class="oe_highlight" string="Export Items"/>
+                            
+                                    <label for="export_employees" string="Export Employees" class="oe_inline"/>
+                                    <button name="export_employees" type="object" class="oe_highlight" string="Export Employees"/>
+                         
+                                    <label for="export_departments" string="Export Employees Departments" class="oe_inline"/>
+                                    <button name="export_departments" type="object" class="oe_highlight" string="Export Departments"/>
+                              
+                                    <label for="export_sales" string="Export Sales" class="oe_inline"/>
+                                    <button name="export_sales" type="object" class="oe_highlight" string="Export Sales"/>
+                            
+                                    <label for="export_estimate" string="Export Estimate" class="oe_inline"/>
+                                    <button name="export_estimate" type="object" class="oe_highlight" string="Export Estimate"/>
+
+                                    <label for="export_purchases" string="Export Purchases" class="oe_inline"/>
+                                    <button name="export_purchases" type="object" class="oe_highlight" string="Export Purchases"/>
+                               
+                                    <label for="export_bills" string="Export Bills" class="oe_inline"/>
+                                    <button name="export_bills" type="object" class="oe_highlight" string="Export Bills"/>
+                              
+                                    <label for="export_accounts" string="Export Accounts" class="oe_inline"/>
+                                    <button name="export_accounts" type="object" class="oe_highlight" string="Export Accounts"/>
+                               
+                                    <label for="export_invoice" string="Export Invoice" class="oe_inline"/>
+                                    <button name="export_invoice" type="object" class="oe_highlight" string="Export Invoice"/>
+                                
+                                    <label for="export_payment_methods" string="Export Payments Methods" class="oe_inline"/>
+                                    <button name="export_payment_methods" type="object" class="oe_highlight" string="Export Payments Methods"/>
+                                
+                                    <label for="export_payments" string="Export Payments" class="oe_inline"/>
+                                    <button name="export_payments" type="object" class="oe_highlight" string="Export Payments"/>
+                               
+                                    <label for="export_tax" string="Export Tax" class="oe_inline"/>
+                                    <button name="export_tax" type="object" class="oe_highlight" string="Export Tax Methods"/>
+                                </group>
+                            </page>
+                            <page string="Extra Field">
+                                <group>
+                                    <field name="asset_account_ref" domain="[('backend_id', '!=', None ), ('account_type', '=', 'asset_current')]"/>
+                                
+                                    <label for="map_employees" string="Map Employees For Export" class="oe_inline" />
+                                    <button name="map_employees" type="object" class="oe_highlight"
+                                            string="Map Employees"/>
+                                
+                                    <label for="map_customers" string="Map Customers For Export" class="oe_inline" />
+                                    <button name="map_customers" type="object" class="oe_highlight"
+                                            string="Map Customers"/>
+                               
+                                    <label for="map_vendors" string="Map Vendors For Export" class="oe_inline" />
+                                    <button name="map_vendors" type="object" class="oe_highlight"
+                                            string="Map Vendors"/>
+
+                                    <label for="map_category" string="Map Product Category For Export" class="oe_inline" />
+                                    <button name="map_category" type="object" class="oe_highlight"
+                                            string="Map Category"/>
+                                
+                                    <label for="map_products" string="Map Products For Export" class="oe_inline" />
+                                    <button name="map_products" type="object" class="oe_highlight"
+                                            string="Map Products"/>
+                                
+                                    <label for="map_accounts" string="Map accounts For Export" class="oe_inline" />
+                                    <button name="map_accounts" type="object" class="oe_highlight"
+                                            string="Map Accounts"/>
+                                
+                                    <label for="map_sale_order" string="Map Sale Orders For Export" class="oe_inline" />
+                                    <button name="map_sale_order" type="object" class="oe_highlight"
+                                            string="Map Sale Orders"/>
+                               
+                                    <label for="map_purchase_order" string="Map Purchase Order For Export" class="oe_inline" />
+                                    <button name="map_purchase_order" type="object" class="oe_highlight"
+                                            string="Map Purchase Orders"/>
+                                </group>
+                            </page>
+                            <page string="Import For Mapping">
+                                <group>
+                                    <label for="import_accounts" string="Import Account" class="oe_inline"/>
+                                    <button name="import_accounts" type="object" class="oe_highlight" string="Import Account" />
+                              
+                                    <label for="import_taxes" string="Import Account Tax Code" class="oe_inline"/>
+                                    <button name="import_taxes" type="object" class="oe_highlight" string="Import Account Tax Code"/>
+                                
+                                    <label for="import_terms" string="Import Payment Term" class="oe_inline"/>
+                                    <button name="import_terms" type="object" class="oe_highlight" string="Import Payment Term"/>
+                                
+                                    <label for="import_payment_methods" string="Import Payment Methods" class="oe_inline"/>
+                                    <button name="import_payment_methods" type="object" class="oe_highlight" string="Import Payment Methods"/>
+                               
+                                    <label for="import_customers" string="Import Customer" class="oe_inline"/>
+                                    <button name="import_customers" type="object" class="oe_highlight" string="Import Customer"/>
+                               
+                                    <label for="import_vendors_qb" string="Import Vendor" class="oe_inline"/>
+                                    <button name="import_vendors_qb" type="object" class="oe_highlight" string="Import Vendor"/>
+                               
+                                    <label for="import_employees" string="Import Employees" class="oe_inline"/>
+                                    <button name="import_employees" type="object" class="oe_highlight" string="Import Employees"/>
+                              
+                                    <label for="import_departments" string="Import Employees Department" class="oe_inline"/>
+                                    <button name="import_departments" type="object" class="oe_highlight" string="Import Employees Department"/>
+                                
+                                    <label for="import_products" string="Import Product" class="oe_inline"/>
+                                    <button name="import_products" type="object" class="oe_highlight" string="Import Product"/>
+                                
+                                    <label for="import_sales" string="Import Sales" class="oe_inline"/>
+                                    <button name="import_sales" type="object" class="oe_highlight" string="Import Sales"/>
+                               
+                                    <label for="import_invoices" string="Import Invoices" class="oe_inline"/>
+                                    <button name="import_invoices" type="object" class="oe_highlight" string="Import Invoices"/>
+                               
+                                    <label for="import_invoicePayments" string="Import Invoice Payments" class="oe_inline"/>
+                                    <button name="import_invoicePayments" type="object" class="oe_highlight" string="Import Invoice Payments"/>
+                              
+                                    <label for="import_purchases" string="Import Purchase" class="oe_inline"/>
+                                    <button name="import_purchases" type="object" class="oe_highlight" string="Import Purchase"/>
+                                
+                                    <label for="import_bills" string="Import Bills" class="oe_inline"/>
+                                    <button name="import_bills" type="object" class="oe_highlight" string="Import Bills"/>
+                                
+                                    <label for="import_billpayments" string="Import Bills Payments" class="oe_inline" />
+                                    <button name="import_billpayments" type="object" class="oe_highlight" string="Import Bills Payments"/>
+                                </group>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="bk_backend_view_form">
+            <field name="act_window_id" ref="backend_menu" />
+            <field name="sequence" eval="20" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="backend_form"/>
+        </record>
+
+
+        <record model="ir.actions.act_window.view" id="bk_backend_view_tree">
+            <field name="act_window_id" ref="backend_menu" />
+            <field name="sequence" eval="10" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="Backend_tree_view" />
+        </record>
+
+
+        <record model="ir.actions.act_window.view" id="qb_account_tree_view">
+            <field name="act_window_id" ref="qb_account_menu" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qb_account_tree_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_customer_tree_view">
+            <field name="act_window_id" ref="qb_customer_menu" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qb_customer_tree_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_vendor_tree_view">
+            <field name="act_window_id" ref="qb_vendor_menu" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qb_vendor_tree_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_employee_tree_view">
+            <field name="act_window_id" ref="qb_employee_menu_emp" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qb_employee_tree_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_product_tree_view">
+            <field name="act_window_id" ref="qb_product_menu" />
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="qb_product_tree_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_account_form_view">
+            <field name="act_window_id" ref="qb_account_menu" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qb_account_form_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_vendor_form_view">
+            <field name="act_window_id" ref="qb_vendor_menu" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qb_vendor_form_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_customer_form_view">
+            <field name="act_window_id" ref="qb_customer_menu" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qb_customers_form_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_employee_form_view">
+            <field name="act_window_id" ref="qb_employee_menu_emp" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qb_employee_form_view_custom" />
+        </record>
+
+        <record model="ir.actions.act_window.view" id="qb_product_form_view">
+            <field name="act_window_id" ref="qb_product_menu" />
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="qb_products_form_view_custom" />
+        </record>
+
+<!--        web_icon="quickbooks_odoo_connector,static/description/app_logo.jpg"-->
+        <menuitem id="quickbook_menu" name="Quickbooks" sequence="0"/>
+        <menuitem id="configuration_menu" name="Configuration" parent="quickbook_menu"/>
+        <menuitem id="configuration_backend_menu" name="Backend" parent="configuration_menu" action="backend_menu"/>
+        <menuitem id="quickbooks_mapping" name="Quickbooks Mappings" parent="quickbook_menu"/>
+        <menuitem id="quickbook_account_menu" name="Quickbooks Chart of Accounts" parent="quickbooks_mapping" action="qb_account_menu"/>
+        <menuitem id="quickbook_customer_menu" name="Quickbooks Customers" parent="quickbooks_mapping" action="qb_customer_menu"/>
+        <menuitem id="quickbook_employee_menu" name="Quickbooks Employees" parent="quickbooks_mapping" action="qb_employee_menu_emp"/>
+        <menuitem id="quickbook_vendor_menu" name="Quickbooks Vendors" parent="quickbooks_mapping" action="qb_vendor_menu"/>
+        <menuitem id="quickbook_product_menu" name="Quickbooks Products" parent="quickbooks_mapping" action="qb_product_menu"/>
+    </data>
+</odoo>

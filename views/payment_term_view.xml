@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_payment_term_form_quick" model="ir.ui.view">
+        <field name="name">quick.account.payment.term.form</field>
+        <field name="model">account.payment.term</field>
+        <field name="inherit_id" ref="account.view_payment_term_form"/>
+        <field name="arch" type="xml">
+          <xpath expr="//form/sheet/group" position="before">
+                  <button name="sync_term" type="object" string="Sync" class="btn btn-primary"/>
+          </xpath>
+
+          <xpath expr="//field[@name='note']" position="after"  >
+              <group>
+                <field name="backend_id"/>
+                 <field name="quickbook_id"/>
+              </group>
+          </xpath>
+        </field>
+       </record>
+
+       <record id="view_payment_acquirer_form_quick" model="ir.ui.view">
+        <field name="name">quick.payment.provider.method.form</field>
+        <field name="model">payment.provider</field>
+        <field name="inherit_id" ref="payment.payment_provider_form"/>
+        <field name="arch" type="xml">
+
+          <xpath expr="//sheet" position="before">
+               <header>
+                  <button name="sync_PaymentMethod" type="object" string="Sync"/>
+               </header>
+          </xpath>
+
+            <xpath expr="//notebook" position="before">
+               <group >
+                  <field name="payment_type"/>
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+               </group>
+            </xpath>
+        </field>
+       </record>
+
+       <record id="view_amount_tax_form_quick" model="ir.ui.view">
+        <field name="name">quick.account.tax.form</field>
+        <field name="model">account.tax</field>
+        <field name="inherit_id" ref="account.view_tax_form"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+               <header>
+                  <!-- <button name="sync_Tax" type="object" string="Sync" attrs="{'invisible': [('amount_type','!=','group')] }"/> -->
+                  <button name="sync_Tax" type="object" string="Sync" />
+               </header>
+            </sheet>
+            <xpath expr="//group" position="inside">
+               <group >            
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+               </group>
+            </xpath> 
+        </field>
+       </record>
+
+       <record id="view_amount_payment_form_quick" model="ir.ui.view">
+        <field name="name">quick.account.payment.form</field>
+        <field name="model">account.payment</field>
+        <field name="inherit_id" ref="account.view_account_payment_form"/>
+        <field name="arch" type="xml">
+            <sheet position="before">
+               <header>
+                  <button name="sync_payment" type="object" string="Sync"/>
+               </header>
+            </sheet>
+            <xpath expr="//group" position="inside">
+               <group >
+                  <field name="backend_id"/>
+                  <field name="quickbook_id"/>
+               </group>
+            </xpath>
+        </field>
+       </record>
+    </data>
+</odoo>

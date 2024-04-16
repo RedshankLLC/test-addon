@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.sequence" id="seq_account_code">
+			<field name="name">code</field>
+			<field name="code">account.account</field>
+			<field name="prefix">30</field>
+			<field name="padding">5</field>
+		</record>
+
+<!--		 <record id="form_view_qb_account_tx_group_inherit" model="ir.ui.view">-->
+<!--        <field name="name">account.tax.group.form</field>-->
+<!--        <field name="model">account.tax.group</field>-->
+<!--        <field name="inherit_id" ref="account.view_tax_group_form"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <xpath expr="//field[@name='sequence']" position="after">-->
+<!--               <field name="backend_id"/>-->
+<!--                <field name="quickbook_id"/>-->
+<!--            </xpath>-->
+<!--        </field>-->
+<!--       </record>-->
+	</data>
+</odoo>

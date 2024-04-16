@@ -1,0 +1,20 @@
+<odoo>
+    <record id="quickbook_management" model="ir.module.category">
+        <field name="name">Odoo QBO Connector</field>
+        <field name="description">User access level for this module</field>
+        <field name="sequence">3</field>
+    </record>
+
+    <record id="group_qbo_user" model="res.groups">
+        <field name="name">User: Access All Documents</field>
+        <field name="category_id" ref="quickbook_management"/>
+        <field name="comment">the user will have access to all records of everyone in the service application.</field>
+    </record>
+    <record id="group_qbo_manager" model="res.groups">
+        <field name="name">QBO Manager</field>
+        <field name="comment">the user will have an access to the service configuration as well as statistic reports.</field>
+        <field name="category_id" ref="quickbook_management"/>
+        <field eval="[(4, ref('group_qbo_user'))]" name="implied_ids"/>
+        <field eval="[(4, ref('base.user_root'))]" name="users"/>
+    </record>
+</odoo>

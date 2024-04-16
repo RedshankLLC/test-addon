@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="view_employees_form_quick" model="ir.ui.view">
+        <field name="name">quick.hr.employee.form</field>
+        <field name="model">hr.employee</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+        	<sheet position="before">
+               <header>
+                  <button name="sync_employee" type="object" string="Sync"/>
+               </header>
+            </sheet>
+
+           	<xpath expr="//field[@name='category_ids']" position="after"  >
+               <group>            
+                  <field name="backend_id"/>
+                  <field name="first_name" default_focus="1" placeholder="First Name" />
+                  <field name="middle_name" placeholder="Middle Name" />         
+                  <field name="last_name" default_focus="1" placeholder="Last Name" />
+                  <field name="quickbook_id"/>
+               </group>
+            </xpath> 
+            <xpath expr="//page[@name='hr_settings']" position="after"  >
+              <page name="quickbook_custom_fields" string="Quickbook Fields">
+                  <group>
+                    <field name="billable_time" required="1"/>
+                    <field name="bill_rate" required="1"/>
+                    <field name="hired_date" required="1"/>
+                  </group>
+              </page>
+            </xpath>
+        </field>
+       </record>
+       <record id="view_departments_form_quick" model="ir.ui.view">
+        <field name="name">quick.hr.department.form</field>
+        <field name="model">hr.department</field>
+        <field name="inherit_id" ref="hr.view_department_form"/>
+        <field name="arch" type="xml">
+          <sheet position="before">
+               <header>
+                  <button name="sync_department" type="object" string="Sync"/>
+               </header>
+            </sheet>
+            <xpath expr="//form/sheet/group/group/field[@name='company_id']" position="after">
+                <field name="backend_id"/>
+                <field name="quickbook_id"/>
+            </xpath> 
+        </field>
+       </record>
+    </data>
+</odoo>

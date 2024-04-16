@@ -1,0 +1,44 @@
+{
+    "data": [
+        [
+            "liability_qb_1",
+            "Accounts Payable"
+        ],
+        [
+            "asset_qb_1",
+            "Accounts Receivable"
+        ],
+        [
+            "expense_qb_1",
+            "Expense"
+        ],
+        [
+            "liability_qb_2",
+            "Other Current Liability"
+        ],
+        [
+            "asset_qb_2",
+            "Other Current Asset"
+        ],
+        [
+            "asset_qb_3",
+            "Bank"
+        ],
+        [
+            "expense_qb_2",
+            "Cost of Goods Sold"
+        ],
+        [
+            "expense_qb_3",
+            "Other Expense"
+        ],
+        [
+            "liability_qb_3",
+            "Long Term Liability"
+        ],
+        [
+            "asset_qb_4",
+            "Fixed Asset"
+        ]
+    ]
+}
